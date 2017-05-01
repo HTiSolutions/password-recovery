@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<h1>Password Demo: Register Page</h1>
+    <form class="form-centre" th:action="@{/register}" th:object="${registerViewModel}" method="post">
+        <div class="form-group">
+            <form class="form col-md-3 center-block">
+                <div class="row">
+                    <div class="form-group">
+                        <input name="first-name" type="text" class="form-control input-lg" placeholder="First Name" required="required" th:field="*{firstName}"/>
+                    </div>
+                    <div class="form-group">
+                        <input name="last-name" type="text" class="form-control input-lg" placeholder="Last Name" required="required" th:field="*{lastName}"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group ">
+                        <input name="register-nickname" type="text" class="form-control input-lg" placeholder="Nickname" required="required" th:field="*{registerNickname}"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <input name="register-password" type="password" class="form-control input-lg" placeholder="Password" required="required" th:field="*{registerPassword}"/>
+                    </div>
+                    <div class="form-group">
+                        <input name="confirm-password" type="password" class="form-control input-lg" placeholder="Confirm Password" required="required" th:field="*{confirmPassword}"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-3 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <select id="question" title="Select question" class="form-control" th:field="${registerViewModel.questionId}" name="questionId">
+                                    <option th:each="securityQuestion : ${registerViewModel.getSecurityQuestion()}" th:value="${securityQuestion.id}" th:text="${securityQuestion.question}"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-3 col-sm-6 col-md-6">
+                        <div class="form-group ">
+                            <input name="answer" type="password" class="form-control input-lg" placeholder="Answer" required="required" th:field="*{answer}"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-3 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input name="confirmPassword-answer" type="password" class="form-control input-lg" placeholder="Confirm Answer" required="required" th:field="*{confirmAnswer}"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-3 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-lg btn-block">Register</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </form>
+</body>
+</html>
