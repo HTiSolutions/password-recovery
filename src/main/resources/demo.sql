@@ -13,7 +13,7 @@ USE `recovery_demo` ;
 -- -----------------------------------------------------
 -- Table `recovery_demo`.`user`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `pool_ref`.`user` (
+CREATE TABLE IF NOT EXISTS `recovery_demo`.`user` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `forename` VARCHAR(45) NOT NULL,
   `surname` VARCHAR(45) NOT NULL,
