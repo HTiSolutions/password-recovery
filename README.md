@@ -1,1 +1,1 @@
-# Password Storage Demo (George Ball)
+# Password Recovery Demo (Adam Stein)

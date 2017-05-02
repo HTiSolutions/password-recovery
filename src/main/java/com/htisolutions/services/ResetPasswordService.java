@@ -16,7 +16,6 @@ public class ResetPasswordService {
     private SecurityQuestionDao securityQuestionDao;
     private User user;
     private boolean answeredQuestion;
-    private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     ResetPasswordService(UserDao userDao, SecurityQuestionDao securityQuestionDao) {
@@ -56,7 +55,7 @@ public class ResetPasswordService {
                 userDao.save(user);
                 return true;
             } catch (Exception ex) {
-                log.error("Error updating password: {}", ex.toString());
+
                 return false;
             }
         } else {

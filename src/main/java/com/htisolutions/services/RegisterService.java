@@ -19,7 +19,7 @@ public class RegisterService {
         this.securityQuestionDao = securityQuestionDao;
     }
 
-    public Boolean validRegister(String firstName, String lastName, String nickname, String registerPassword, String confirmPassword , Long questionId, String answer, String confirmAnswer){
+    public Boolean register(String firstName, String lastName, String nickname, String registerPassword, String confirmPassword , Long questionId, String answer, String confirmAnswer){
         if (registerPassword.equals(confirmPassword) && userDao.findByNickname(nickname) == null && (answer.equals(confirmAnswer))) {
             try {
                 BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();

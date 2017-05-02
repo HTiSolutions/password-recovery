@@ -15,7 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 public class ResetPasswordController {
 
     private ResetPasswordService resetPasswordService;
-    private User user;
 
     @Autowired
     ResetPasswordController(ResetPasswordService resetPasswordService){this.resetPasswordService = resetPasswordService;}
@@ -32,7 +31,6 @@ public class ResetPasswordController {
     public String enteredNickname(@ModelAttribute(value="resetPasswordNicknameViewModel") ResetPasswordNicknameViewModel resetPasswordNicknameViewModel) {
         String nickname = resetPasswordNicknameViewModel.getNickname();
         if (resetPasswordService.validName(nickname)) {
-            user = resetPasswordService.getUser(nickname);
             return ("redirect:/reset-password/question");
         } else {
             return ("redirect:/reset-password?error");

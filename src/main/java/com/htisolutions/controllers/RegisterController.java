@@ -39,7 +39,7 @@ public class RegisterController {
         String securityQuestionAnswer = registerViewModel.getAnswer();
         String confirmAnswer = registerViewModel.getConfirmAnswer();
 
-        if (registerService.validRegister(firstName, lastName, registerNickname, registerPassword, confirmPassword, questionId, securityQuestionAnswer, confirmAnswer)) {
+        if (registerService.register(firstName, lastName, registerNickname, registerPassword, confirmPassword, questionId, securityQuestionAnswer, confirmAnswer)) {
             return ("redirect:/home");
         } else {
             return ("redirect:/register?error");
